@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for, abort
 from . import main
-from ..request import get_movies,get_movie,search_movie
+# from ..request import get_movies,get_movie,search_movie
 from .forms import ReviewForm, UpdateProfile
 from ..import db, photos
 from ..models import Review, User
@@ -26,54 +26,54 @@ def index():
     '''
 
     # Getting popular movie
-    popular_movies = get_movies('popular')
-    upcoming_movie = get_movies('upcoming')
-    now_showing_movie = get_movies('now_playing')
+#     popular_movies = get_movies('popular')
+#     upcoming_movie = get_movies('upcoming')
+#     now_showing_movie = get_movies('now_playing')
 
-    title = 'Home - Welcome to The best Movie Review Website Online'
+#     title = 'Home - Welcome to The best Movie Review Website Online'
 
-    search_movie = request.args.get('movie_query')
+#     search_movie = request.args.get('movie_query')
 
-    if search_movie:
-        return redirect(url_for('search',movie_name=search_movie))
-    else:
-        return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
-@main.route('/movies/<int:id>')
-def movies(movie_id):
+#     if search_movie:
+#         return redirect(url_for('search',movie_name=search_movie))
+#     else:
+#         return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
+# @main.route('/movies/<int:id>')
+# def movies(movie_id):
 
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
-    return render_template('movie.html',id = movie_id)
-@main.route('/movie/<int:id>')
-def movie(id):
+#     '''
+#     View movie page function that returns the movie details page and its data
+#     '''
+#     return render_template('movie.html',id = movie_id)
+# @main.route('/movie/<int:id>')
+# def movie(id):
 
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
-    movie = get_movie(id)
-    title = f'{movie.title}'
-    reviews = Review.get_reviews(movie.id)
+#     '''
+#     View movie page function that returns the movie details page and its data
+#     '''
+#     movie = get_movie(id)
+#     title = f'{movie.title}'
+#     reviews = Review.get_reviews(movie.id)
 
-    return render_template('movie.html',title = title,movie = movie,reviews = reviews)
-@main.route('/search/<movie_name>')
-def search(movie_name):
-    '''
-    View function to display the search results
-    '''
-    movie_name_list = movie_name.split(" ")
-    movie_name_format = "+".join(movie_name_list)
-    searched_movies = search_movie(movie_name_format)
-    title = f'search results for {movie_name}'
-    return render_template('search.html',movies = searched_movies)
+#     return render_template('movie.html',title = title,movie = movie,reviews = reviews)
+# @main.route('/search/<movie_name>')
+# def search(movie_name):
+#     '''
+#     View function to display the search results
+#     '''
+#     movie_name_list = movie_name.split(" ")
+#     movie_name_format = "+".join(movie_name_list)
+#     searched_movies = search_movie(movie_name_format)
+#     title = f'search results for {movie_name}'
+#     return render_template('search.html',movies = searched_movies)
 
-@main.route('/reviews/<int:id>')
-def movie_reviews(id):
-    movie = get_movie(id)
+# @main.route('/reviews/<int:id>')
+# def movie_reviews(id):
+#     movie = get_movie(id)
 
-    reviews = Review.get_reviews(id)
-    title = f'All reviews for {movie.title}'
-    return render_template('movie_reviews.html',title = title,reviews=reviews)
+#     reviews = Review.get_reviews(id)
+#     title = f'All reviews for {movie.title}'
+#     return render_template('movie_reviews.html',title = title,reviews=reviews)
 
 @main.route('/review/<int:id>')
 def single_review(id):
