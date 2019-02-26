@@ -1,21 +1,18 @@
-{% extends 'base.html'%}
-
-{% block content%}
+{% extends 'base.html'%} {% block content%}
 <div class="container-fluid">
-
   <div class="row">
     <div class="col-sm-4">
-      <img src="{{review.image_path}}" class="img-responsive">
+      <img src="{{ review.image_path }}" class="img-responsive" />
     </div>
 
     <div class="col-sm-8">
-      {{format_review|safe}}
+      {{ format_review | safe }}
     </div>
   </div>
 </div>
 {%endblock%}
 <!-- Displaying reviews macro -->
-{% macro displayReviews(review_list) %}
+<!-- {% macro displayReviews(review_list) %}
 
     {% for review in review_list %}
 
@@ -30,5 +27,5 @@
       </div>
     </div>
 
-    {% endfor %}
+    {% endfor %} -->
 {% endmacro %}
