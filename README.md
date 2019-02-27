@@ -17,3 +17,27 @@ source virtual/bin/activate.
 curl https://bootstrap.pypa.io/get-pip.py | python.
 
 pip install flask.
+
+### SetUp / Installation Requirements
+
+python3.6
+Flask
+pip
+
+pyperclip
+
+In your terminal:
+
+\$ git clone https://github.com/mbabazif/news-highlight.git:
+
+To run the application, in your terminal:
+
+\$ python3.6 run.py
+
+Technologies Used:
+
+Python3.6
+
+## License:
+
+2019 Florence Mbabazi
