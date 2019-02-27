@@ -28,7 +28,7 @@ pyperclip
 
 In your terminal:
 
-\$ git clone https://github.com/mbabazif/news-highlight.git:
+\$ git clone https://github.com/mbabazif/pitches.git
 
 To run the application, in your terminal:
 
