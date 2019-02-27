@@ -19,7 +19,7 @@ class User(UserMixin, db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    password_secure = db.Column(db.String(255))
+    pass_secure = db.Column(db.String(255))
 
     reviews = db.relationship('Review', backref='user', lazy="dynamic")
 
@@ -95,9 +95,10 @@ class Pitch(db.Model):
 
     writer = db.Column(db.Integer, db.ForeignKey("users.id"))
 
-    comments = db.relationship('Comment', backref='pitch', lazy="dynamic")
-    likes = db.relationship('Like', backref='pitch', lazy="dynamic")
-    dislikes = db.relationship('Dislike', backref='pitch', lazy="dynamic")
+    comments = db.relationship('Comment', backref='comment', lazy="dynamic")
+
+    # likes = db.relationship('Like', backref='pitch', lazy="dynamic")
+    # dislikes = db.relationship('Dislike', backref='pitch', lazy="dynamic")
 
     def save_pitch(self):
         db.session.add(self)
