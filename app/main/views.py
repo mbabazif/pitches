@@ -3,7 +3,7 @@ from . import main
 
 from .forms import ReviewForm, UpdateProfile
 from .. import db, photos
-from ..models import Review, User
+from ..models import User, Review, Role, Pitch, Comment
 from flask_login import login_required, current_user
 import markdown2
 
@@ -14,7 +14,7 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    title = 'Home - Welcome to The best Movie Review Website Online'
+    title = 'Home - Welcome to The one minute pi'
 
     return render_template('index.html', title=title)
 
@@ -34,26 +34,26 @@ def single_review(id):
 @login_required
 def new_review(id):
     form = ReviewForm()
-    movie = get_movie(id)
+    # movie = get_movie(id)
     if form.validate_on_submit():
         title = form.title.data
         review = form.review.data
 
         # Updated review instance
         new_review = Review(
-            movie_id=movie.id,
-            movie_title=title,
-            image_path=movie.poster,
-            movie_review=review,
+            # movie_id=movie.id,
+            # movie_title=title,
+            # image_path=movie.poster,
+            # movie_review=review,
             user=current_user)
 
         # save review method
         new_review.save_review()
-        return redirect(url_for('.movie', id=movie.id))
+    #     return redirect(url_for('.movie', id=movie.id))
 
-    title = f'{movie.title} review'
-    return render_template(
-        'new_review.html', title=title, review_form=form, movie=movie)
+    # title = f'{movie.title} review'
+    # return render_template(
+    #     'new_review.html', title=title, review_form=form, movie=movie)
 
 
 @main.route('/user/<uname>')

@@ -5,7 +5,7 @@
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
-    <title>Welcome to the best Movie Review website</title>
+    <title>Welcome online pitches</title>
     {% endif %} {% extends 'base.html'%} {% import 'macros.html' as macro%}
 
     <!-- Styles block -->
@@ -27,15 +27,15 @@
     {% block content %}
 
     <div class="container">
-      <form>
-        <input
-          type="text"
-          name="movie_query"
-          placeholder="Search for a Movie"
-          class="form-control"
-        />
-        <input type="submit" value="Submit" class="btn btn-default" />
-      </form>
+      <div class="jumbotron" style="min-height: 200vh">
+        <h1
+          class="text-center"
+          style="font-weight: bold; font-size: 28px; color: brown; background-color: teal;"
+        >
+          <div class="well">Add Pitches</div>
+        </h1>
+      </div>
+      <div class="row"></div>
     </div>
 
     <!-- Popular movie -->
