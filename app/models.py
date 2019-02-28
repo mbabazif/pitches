@@ -92,8 +92,7 @@ class Pitch(db.Model):
     body = db.Column(db.String())
     category = db.Column(db.String())
     date = db.Column(db.DateTime, default=datetime.utcnow)
-
-    writer = db.Column(db.Integer, db.ForeignKey("users.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     comments = db.relationship('Comment', backref='comment', lazy="dynamic")
 
