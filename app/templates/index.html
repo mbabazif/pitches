@@ -1,61 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    {% if title %}
-    <title>{{ title }}</title>
-    {% else %}
-    <title>Welcome online pitches</title>
-    {% endif %} {% extends 'base.html'%} {% import 'macros.html' as macro%}
+{% extends 'base.html' %} {% import 'macros.html' as macro %}
 
-    <!-- Styles block -->
+<!-- Content block -->
+{%block content%}
+<div class="jumbotron text-center" style="background-color: teal">
+  <h1>Minute Pitch</h1>
+</div>
+<div class="container" style="padding-bottom: 20px;">
+  <a href="{{ url_for('main.new_pitch') }}" class="btn btn-success"
+    >Create pitch</a
+  >
+</div>
 
-    {% block styles%}
-    {{
-      super()
-    }}
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',filename='css/index.css')}}"
-    />
-    {% endblock %}
-  </head>
-
-  <body>
-    <!-- Content block -->
-
-    {% block content %}
-
-    <div class="container">
-      <div class="jumbotron" style="height: 300px; background-color: teal">
-        <h1
-          class="text-center"
-          style="font-weight: bold; font-size: 28px; color: brown; background-color: teal;"
+<div class="container" style="font-family: 'Cormorant Upright', serif;">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="well well-lg">
+        <h3>Interview Pitches</h3>
+        <p>Want to ace an interview in just a few words, welcome.</p>
+        <a
+          href="{{ url_for('main.interview_pitches') }}"
+          class="btn btn-primary -center"
+          >View</a
         >
-          <div class="well" style="background-color: aquamarine">
-            One Mnute Pitch
-          </div>
-        </h1>
       </div>
-      <div class="row"></div>
     </div>
-
-    <!-- Popular movie -->
-    <!-- <h3> Popular Movies</h3>
-    <ul>
-        {{ macro.displayMovieList(popular)}}
-    </ul> -->
-    <!-- Upcoming movie  -->
-    <!-- <h3> Upcoming Movies </h3>
-    <ul>
-        {{ macro.displayMovieList(upcoming)}}
-    </ul> -->
-    <!-- Now showing movie -->
-    <!-- <h3>Now Showing</h3>
-    <ul>
-        {{ macro.displayMovieList(now_showing)}}
-    </ul> -->
-
-    {% endblock%}
-  </body>
-</html>
+    <div class="col-md-4">
+      <div class="well well-lg">
+        <h3>Product Pitches</h3>
+        <p>Want to talk about your products, you're in the right place.</p>
+        <a
+          href="{{ url_for('main.product_pitches') }}"
+          class="btn btn-primary -center"
+          >View</a
+        >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="well well-lg">
+        <h3>Promotion Pitches</h3>
+        <p>Want to promote anything, step right up and begin.</p>
+        <a
+          href="{{ url_for('main.promotion_pitches') }}"
+          class="btn btn-primary -center"
+          >View</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
