@@ -32,7 +32,7 @@ In your terminal:
 
 To run the application, in your terminal:
 
-\$ python3.6 run.py
+\$ .\start.py
 
 Technologies Used:
 
