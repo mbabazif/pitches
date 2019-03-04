@@ -28,7 +28,9 @@ pyperclip
 
 In your terminal:
 
-\$ git clone https://github.com/mbabazif/pitches.git
+\$ git clone: https://github.com/mbabazif/pitches.git
+
+You can view this application using this link: https://pitch2.herokuapp.com/
 
 To run the application, in your terminal:
 
