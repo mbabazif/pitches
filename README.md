@@ -2,7 +2,7 @@
 
 ### By Florence Mbabazi
 
-##Description
+Description
 
 This is one minute pitch application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
 
@@ -32,7 +32,7 @@ In your terminal:
 
 To run the application, in your terminal:
 
-\$ python3.6 run.py
+\$ .\start.py
 
 Technologies Used:
 
